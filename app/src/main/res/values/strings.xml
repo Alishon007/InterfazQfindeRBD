@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Qfinder-Front</string>
+    <string name="unete">Únete a </string>
+    <string name="QfindeR"> QfindeR </string>
+    <string name="text1">Registra tus datos como cuidador </string>
+    <string name="text2">Registrate</string>
+    <string name="nombre">Nombres </string>
+    <string name="apellido">Apellidos </string>
+    <string name="correo">Correo electrónico </string>
+    <string name="telefono">Número telefónico</string>
+    <string name="nacimiento">Fecha de nacimiento</string>
+    <string name="contrasena">Contaseña</string>
+    <string name="btnVolver">Volver </string>
+    <string name="btnCont">Continuar </string>
+</resources>
