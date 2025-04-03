@@ -3,6 +3,7 @@ package com.example.interfazqfinderbd.model;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.List;
 
@@ -53,4 +54,25 @@ public class ManagerDB {
     }
 
 
+
+    public int updateUsuario(String nombres, String apellidos, String correo, String telefono, String fecha, String contrasena) {
+        openDbWr();
+        ContentValues valores = new ContentValues();
+        valores.put("nombres", nombres);
+        valores.put("apellidos", apellidos);
+        valores.put("telefono", telefono);
+        valores.put("fechaNacimiento", fecha);
+        valores.put("contrasena", contrasena);
+
+        int filasAfectadas = db.update("Usuario", valores, "correo=?", new String[]{String.valueOf(correo)});
+        Log.d("ManagerDB", "Actualizando ciudad: " + correo + ", resultado: " + filasAfectadas);
+        return filasAfectadas;
+    }
+
+    public int deleteUsuario(String correo) {
+        openDbWr();
+        int filasEliminadas = db.delete("Usuario", "correo=?", new String[]{String.valueOf(correo)});
+        Log.d("ManagerDB", "Eliminando ciudad: " + correo + ", resultado: " + filasEliminadas);
+        return filasEliminadas;
+    }
 }
