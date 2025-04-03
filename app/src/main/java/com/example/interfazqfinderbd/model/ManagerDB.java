@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.List;
+
 public class ManagerDB {
 
     private final DbHelper dbHelper;
@@ -27,6 +29,10 @@ public class ManagerDB {
         if (db != null && db.isOpen()) {
             db.close();
         }
+    }
+
+    public List<String> getUsuarios() {
+        return dbHelper.getUsuarios(); // Aquí usas el método del DBHelper.
     }
 
     public long insertUsuario(String nombres, String apellidos, String correo, String telefono, String fechaNacimiento, String contrasena) {

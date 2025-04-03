@@ -1,5 +1,6 @@
 package com.example.interfazqfinderbd.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,7 @@ import com.example.interfazqfinderbd.model.ManagerDB;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtNombre, edtApellido, edtCorreo, edtTelefono, edtFecha, edtContrasena;
-    Button btnGuardar;
+    Button btnGuardar, btnListar;
     ManagerDB managerDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         edtContrasena = findViewById(R.id.edtContrasena);
 
         btnGuardar = findViewById(R.id.btnGuardar);
+        btnListar = findViewById(R.id.btnListar);
 
         managerDB = new ManagerDB(MainActivity.this);
 
@@ -50,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error al Insertar" + result, Toast.LENGTH_SHORT).show();
             }
         });
+
+        btnListar.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Listar.class);
+            startActivity(intent);
+        });
+
 
     }
 }
